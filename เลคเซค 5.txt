@@ -1,0 +1,225 @@
+c# คือ oop ทำงานร่วมกัน .net plaform ของ MS
+🍁🍁🍁🍁🍁🍁🍁🍁🍁🍁🍁🍁
+Basic C 
+using : import libra
+namespace : ของ modul ที่เอาเข้ามาใช้
+console &  debug : 
+
+🍁LAP1🍁
+Console.WriteLine("---Student 1---");
+Console.Write("Name : ");
+string Name1 = Console.ReadLine();
+Console.Write("Input Weight(kg) : ");
+double W1 = double.Parse(Console.ReadLine());
+Console.Write("Input Height(cm) : ");
+double H1 = double.Parse(Console.ReadLine());
+
+Console.WriteLine("---Student 2---");
+Console.Write("Name : ");
+string Name2 = Console.ReadLine();
+Console.Write("Input Weight(kg) : ");
+double W2 = double.Parse(Console.ReadLine());
+Console.Write("Input Height(cm) : ");
+double H2 = double.Parse(Console.ReadLine());
+double BMI1 = Math.Round(W1 / Math.Pow(H1 / 100, 2), 2);
+double BMI2 = Math.Round(W2 / Math.Pow(H2 / 100, 2), 2);
+
+Console.WriteLine($"\n{Name1.ToUpper()} BMI = {BMI1}");
+Console.WriteLine($"{Name2.ToUpper()} BMI = {BMI2}");
+
+Console.WriteLine($"\nMax BMI = {Math.Max(BMI1, BMI2)}");
+
+🍁LAP2🍁
+Console.WriteLine("Your Position : ");
+string position = Console.ReadLine();
+
+Console.WriteLine("Your Salary : ");
+float salary = float.Parse(Console.ReadLine());
+
+switch (position) { 
+    case "Assistant Developer":
+        salary *= 1.05f;
+        break;
+    case "IT Support":
+        salary *= 1.07f;
+        break;
+    case "Senior Developer":
+        salary *= 1.1f;
+        break;
+    case "Administrator":
+        salary *= 1.08f;
+        break;
+    default:
+        salary *= 1.03f;
+        break;
+}
+
+Console.WriteLine($"Your Salary = {Math.Round(salary)}");
+
+🍁LAP3🍁
+/*
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        bool exit = false;
+        while (!exit)
+        {
+            Console.Write("Enter the number of students: ");
+            int numberOfStudents = int.Parse(Console.ReadLine());
+
+            double maxScore = double.MinValue;  // คะแนนสูงสุด
+            double minScore = double.MaxValue;  // คะแนนต่ำสุด
+
+            for (int i = 0; i < numberOfStudents; i++)
+            {
+                Console.WriteLine("----------------");
+                Console.Write("\nEnter student ID: ");
+                string studentID = Console.ReadLine();
+
+                Console.Write("Enter student score: ");
+                double studentScore = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Student ID: " + studentID);
+                Console.WriteLine("Student Score: " + studentScore);
+
+
+                // หาคะแนนสูงสุดและต่ำสุด
+                maxScore = Math.Max(maxScore, studentScore);
+                minScore = Math.Min(minScore, studentScore);
+            }
+            
+
+            string exitChoice = "";
+            while (exitChoice != "Y" && exitChoice != "N")
+            {
+                Console.WriteLine("----------------");
+                Console.Write("Exit? (Y/N): ");
+                exitChoice = Console.ReadLine().ToUpper();
+            }
+            if (exitChoice == "N")
+            {
+                continue;  // วนกลับไปทำขั้นตอนใหม่
+            }
+            else if (exitChoice == "Y")
+            {
+                exit = true;  // ออกจากลูป
+            }
+            Console.WriteLine("Number of Students: " + numberOfStudents);
+            Console.WriteLine("Max Score: " + maxScore);
+            Console.WriteLine("Min Score: " + minScore);
+        }
+            Console.WriteLine("----------------");
+           
+    }
+}
+
+
+class person
+{ 
+    private string name;
+    private int age;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+
+    }
+
+    public int Age
+    {
+        get { return age; }
+        set { age = value; }
+    }
+}
+
+class Program
+{
+    public static void Main()
+    {
+        person P1= new person();
+        P1.Name = "Jet";
+        P1.Age = 22;
+
+        Console.WriteLine(P1.Name);
+        Console.WriteLine(P1.Age);  
+
+        Console.WriteLine("------------------");
+
+        person P2= new person();
+        P2.Name = "Jojo";
+        P2.Age = 22;
+
+        Console.WriteLine(P2.Name);
+        Console.WriteLine(P2.Age);
+    }
+}
+
+class Employee:person
+{
+    public static void Salary()
+    {
+        Console.WriteLine("[0] salary = 50000", Name);
+
+    }
+}
+*/
+🍁LAP4🍁
+using System;
+
+namespace Test01
+{
+    internal class TALENTS
+    {
+        private string affiliation;
+        private double follower;
+        public string Affiliation { get { return affiliation; } set { affiliation = value; } }
+        public double Follower { get { return follower; } set { follower = value; } }
+
+        public virtual double GetSpeed()
+        {
+            return follower;
+        }
+    }
+
+    internal class VOXAKUMA : TALENTS
+    {
+        public VOXAKUMA(string affiliation, double follower)
+        {
+            Affiliation = affiliation;
+            Follower = follower;
+        }
+
+        public override double GetSpeed()
+        {
+            return Follower;
+        }
+    }
+
+    internal class SHUYAMINO : TALENTS
+    {
+        public SHUYAMINO(string affiliation, double follower)
+        {
+            Affiliation = affiliation;
+            Follower = follower;
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            VOXAKUMA VO_AKU = new VOXAKUMA("VO_AKU follow", 1.31);
+            SHUYAMINO SHU_YA = new SHUYAMINO("SHU_YA follow", 0.88);
+
+            double VO_AKUFollow = VO_AKU.GetSpeed();
+            double SHU_YAFollow = SHU_YA.GetSpeed();
+
+            Console.WriteLine($"Vox Akuma Follow = {VO_AKUFollow} point");
+            Console.WriteLine($"Shu Yamino Follow = {SHU_YAFollow} point");
+        }
+    }
+}
